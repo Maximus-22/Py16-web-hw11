@@ -6,12 +6,17 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.database.db import get_db
 from src.routes import contacts
+from src.routes import search_contacts
+from src.routes import birthday_contacts
 
 # Запуск проекту:
 # uvicorn main:app --host localhost --port 8000 --reload
+# де <app> - це змiнна з наступного рядка!
 app = FastAPI()
 
 app.include_router(contacts.router, prefix="/api")
+app.include_router(search_contacts.router, prefix='/api')
+app.include_router(birthday_contacts.router, prefix='/api')
 
 
 @app.get("/")

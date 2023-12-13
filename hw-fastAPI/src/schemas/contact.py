@@ -1,5 +1,6 @@
 import re
 from datetime import datetime
+from datetime import date
 
 from pydantic import BaseModel, EmailStr, Field, validator
 from typing import Optional, Literal, Generic
@@ -43,7 +44,7 @@ class ContactResponseSchema(BaseModel):
     last_name: str
     email: str
     phone_number: str
-    birth_date: str
+    birth_date: date
     crm_status: str
 
     class Config:
